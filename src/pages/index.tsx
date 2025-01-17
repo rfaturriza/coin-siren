@@ -7,7 +7,10 @@ const Page = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <Landing
-      mainProps={{ overviewAndSalaryDisplayProps: { salaryInfo: data.data.salaryInfo } }}
+      mainProps={{
+        overviewAndSalaryDisplayProps: { salaryInfo: data.data.salaryInfo },
+        productCard: data.data.products,
+      }}
     />
   );
 };

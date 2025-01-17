@@ -1,4 +1,9 @@
-export const ProductCard = () => (
+import { ProductType } from "@/pages/api/dashboard";
+
+export interface ProductCardProps {
+  data: ProductType;
+}
+export const ProductCard = ({ data }: ProductCardProps) => (
   <div className="flex items-center gap-2 p-4 rounded-lg min-w-[200px] md:min-w-[300px] bg-white/20">
     <div className="flex items-center justify-center w-10 h-10 rounded-md bg-white/20">
       <svg
@@ -22,6 +27,6 @@ export const ProductCard = () => (
       </svg>
     </div>
 
-    <span className="text-lg font-semibold text-white">퍼블리셔</span>
+    <span className="text-lg font-semibold text-white">{data.name}</span>
   </div>
 );

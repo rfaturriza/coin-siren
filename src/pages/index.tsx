@@ -17,11 +17,34 @@ const Page = ({
 };
 
 export const getServerSideProps = (async (context) => {
-  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
-  const baseUrl = `${protocol}://${context.req.headers.host}`;
-  const res = await fetch(`${baseUrl}/api/dashboard`);
-  const data: ResponseDashboard = await res.json();
-  return { props: { data } };
+  try {
+    const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
+    const baseUrl = `${protocol}://${context.req.headers.host}`;
+    const res = await fetch(`${baseUrl}/api/dashboard`);
+
+    if (!res.ok) {
+      throw new Error(`API responded with status: ${res.status}`);
+    }
+
+    const contentType = res.headers.get("content-type");
+    if (!contentType?.includes("application/json")) {
+      throw new Error(`Expected JSON response but got ${contentType}`);
+    }
+
+    const data: ResponseDashboard = await res.json();
+    return { props: { data } };
+  } catch (error) {
+    console.error("Error fetching dashboard data:", error);
+    // Return fallback data or redirect to error page
+    return {
+      notFound: true, // This will show 404 page
+      // Or redirect:
+      // redirect: {
+      //   destination: '/error',
+      //   permanent: false,
+      // },
+    };
+  }
 }) satisfies GetServerSideProps<{ data: ResponseDashboard }>;
 
 export default Page;

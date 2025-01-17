@@ -1,12 +1,15 @@
+import { ProfileType } from "@/pages/api/dashboard";
 import { ProfileCard } from "../atoms/profile_card";
 import CardCarousel from "../molecules/profile_card_carousel";
 
-export const UserProfileSection = () => {
-  const cards = [
-    <ProfileCard key={0} name="Abhishek Gupta" />,
-    <ProfileCard key={1} name="Gupta Abhishek" />,
-    <ProfileCard key={2} name="Uptag Shekabhi" />,
-  ];
+export interface UserProfileSectionProps {
+  data: ProfileType[];
+}
+
+export const UserProfileSection = ({ data }: UserProfileSectionProps) => {
+  const cards = data.map((profile) => (
+    <ProfileCard key={profile.id} {...profile} />
+  ));
   return (
     <>
       <CardCarousel cards={cards} />

@@ -10,6 +10,7 @@ const Page = ({
       mainProps={{
         overviewAndSalaryDisplayProps: { salaryInfo: data.data.salaryInfo },
         productCard: data.data.products,
+        profileCard: data.data.profile,
       }}
     />
   );

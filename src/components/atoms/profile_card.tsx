@@ -1,17 +1,24 @@
-interface CardProps {
-  name: string;
-}
+import { ProfileType } from "@/pages/api/dashboard";
+import Image from "next/image";
 
-export const ProfileCard = ({ name }: CardProps) => (
+export const ProfileCard = ({ name, position, experience }: ProfileType) => (
   <div className="bg-white rounded-2xl p-8 w-full h-full">
     <div className="flex justify-center relative">
       <div className="w-24 h-24 rounded-full bg-gray-200 flex justify-center items-center relative">
-        <img src="/ava.png" alt="Profile Picture" className="rounded-full" />
+        <Image
+          src="/ava.png"
+          alt="Profile Picture"
+          className="rounded-full"
+          width={80}
+          height={80}
+        />
         <div className="absolute bottom-0 right-0">
-          <img
+          <Image
             src="/flag.png"
             alt="Flag"
             className="rounded-full w-8 h-8 border-2 border-white"
+            width={32}
+            height={32}
           />
         </div>
       </div>
@@ -20,8 +27,8 @@ export const ProfileCard = ({ name }: CardProps) => (
       <h2 className="text-3xl font-black text-gray-900">{name}</h2>
       <p className="text-gray-500 text-sm">
         <a href="#" className="text-blue-500 hover:underline">
-          마케팅
-          <span className="font-bold"> ·2y+ </span>
+          {position}
+          <span className="font-bold"> {experience}</span>
         </a>
       </p>
     </div>

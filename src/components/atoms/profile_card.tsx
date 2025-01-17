@@ -2,7 +2,7 @@ interface CardProps {
   name: string;
 }
 
-export const Card = ({ name }: CardProps) => (
+export const ProfileCard = ({ name }: CardProps) => (
   <div className="bg-white rounded-2xl p-8 w-full h-full">
     <div className="flex justify-center relative">
       <div className="w-24 h-24 rounded-full bg-gray-200 flex justify-center items-center relative">

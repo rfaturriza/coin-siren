@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { HyperHireLogo } from "../atoms/logo";
+import { HyperHireLogo } from "../atoms/hyperhire_logo";
 import { useState } from "react";
 
 export const Header = () => {

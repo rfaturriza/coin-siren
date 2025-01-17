@@ -1,4 +1,4 @@
-export const CardProduct = () => (
+export const ProductCard = () => (
   <div className="flex items-center gap-2 p-4 rounded-lg min-w-[200px] md:min-w-[300px] bg-white/20">
     <div className="flex items-center justify-center w-10 h-10 rounded-md bg-white/20">
       <svg

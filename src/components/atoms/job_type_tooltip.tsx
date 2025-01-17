@@ -1,4 +1,4 @@
-export const Tooltip = () => (
+export const JobTypeTooltip = () => (
   <div className="md:bg-white py-1 px-3 rounded-md relative bg-[#8BC4FF]">
     <p className="text-sm font-bold text-center md:text-[#40E2E8] text-white">
       풀타임, 파트타임

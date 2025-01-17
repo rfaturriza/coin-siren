@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { SalaryTooltip } from "../atoms/salary_tooltip";
 
 const CardCarousel = ({ cards }: { cards: React.ReactNode[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,11 +62,20 @@ const CardCarousel = ({ cards }: { cards: React.ReactNode[] }) => {
               key={index}
               className={`absolute transition-all duration-500 ${translateX} ${
                 isActive
-                  ? "z-20 scale-75 md:scale-100 opacity-100"
+                  ? "z-20 scale-75 md:scale-110 opacity-100"
                   : "z-10 scale-50 md:scale-90 opacity-80"
               }`}
             >
-              {card}
+              <div className="flex-col items-center justify-center">
+                <div
+                  className={`mb-4 w-[50%] md:w-[70%] mx-auto ${
+                    isActive ? "" : "hidden"
+                  }`}
+                >
+                  <SalaryTooltip />
+                </div>
+                {card}
+              </div>
             </div>
           ) : null;
         })}

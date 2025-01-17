@@ -1,4 +1,4 @@
-export const MainRow = () => (
+export const SalaryInfoDisplay = () => (
   <div className="flex justify-between items-center">
     <div className="flex flex-col items-start justify-center gap-2 w-[160px]">
       <div className="h-[1px] bg-gray-100 w-[130px]"></div>

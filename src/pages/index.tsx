@@ -16,8 +16,10 @@ const Page = ({
   );
 };
 
-export const getServerSideProps = (async () => {
-  const res = await fetch("http://localhost:3000/api/dashboard");
+export const getServerSideProps = (async (context) => {
+  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
+  const baseUrl = `${protocol}://${context.req.headers.host}`;
+  const res = await fetch(`${baseUrl}/api/dashboard`);
   const data: ResponseDashboard = await res.json();
   return { props: { data } };
 }) satisfies GetServerSideProps<{ data: ResponseDashboard }>;

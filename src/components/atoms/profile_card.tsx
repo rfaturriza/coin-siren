@@ -1,5 +1,6 @@
 import { ProfileType } from "@/pages/api/dashboard";
 import Image from "next/image";
+import Link from "next/link";
 
 export const ProfileCard = ({ name, position, experience }: ProfileType) => (
   <div className="bg-white rounded-2xl p-8 w-full h-full">
@@ -26,10 +27,10 @@ export const ProfileCard = ({ name, position, experience }: ProfileType) => (
     <div className="text-center mt-4">
       <h2 className="text-3xl font-black text-gray-900">{name}</h2>
       <p className="text-gray-500 text-sm">
-        <a href="#" className="text-blue-500 hover:underline">
+        <Link href="#" className="text-blue-500 hover:underline">
           {position}
           <span className="font-bold"> {experience}</span>
-        </a>
+        </Link>
       </p>
     </div>
     <div className="flex justify-center mt-6">

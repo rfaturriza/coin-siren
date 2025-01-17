@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const Footer = () => (
   <footer className="bg-gray-50 py-10">
     <div className="max-w-7xl mx-auto px-4">
@@ -5,10 +7,12 @@ export const Footer = () => (
       <div className="flex flex-col md:flex-row md:justify-between md:items-center">
         {/* Left Section */}
         <div>
-          <img
+          <Image
             src="/hyperhire-logo2.png"
             alt="Logo"
             className="h-8 pb-4 md:mb-0"
+            width={120}
+            height={40}
           />
           <p className="text-sm text-gray-700">
             우리는 국가의 경계를 넘어 최고의 인재를 매칭해드립니다.

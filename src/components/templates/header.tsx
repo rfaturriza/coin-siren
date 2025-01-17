@@ -14,9 +14,9 @@ export const Header = () => {
     <header className="container mx-auto py-4">
       <nav className="relative flex justify-between items-center">
         <div>
-          <a href="/">
+          <Link href="/">
             <HyperHireLogo />
-          </a>
+          </Link>
         </div>
 
         {/* Hamburger button */}

@@ -6,6 +6,7 @@ import {
 import { UserProfileSection } from "../organisms/user_profile_section";
 import { ProductCard } from "../atoms/product_card";
 import { ProductType, ProfileType } from "@/pages/api/dashboard";
+import { motion, AnimatePresence } from "framer-motion";
 export interface MainProps {
   overviewAndSalaryDisplayProps: OverviewAndSalaryDisplayProps;
   productCard: ProductType[];
@@ -22,11 +23,29 @@ export const Main = ({
         <OverviewAndSalaryDisplay {...overviewAndSalaryDisplayProps} />
         <UserProfileSection data={profileCard} />
       </div>
-      <div className="flex gap-4 pt-[60px] px-4 overflow-x-auto no-scrollbar">
-        {productCard?.map((productCard) => (
-          <ProductCard key={productCard.id} data={productCard} />
-        ))}
-      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="flex gap-4 pt-[60px] px-4 overflow-x-auto no-scrollbar"
+      >
+        <AnimatePresence mode="wait">
+          {productCard?.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -100, opacity: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.2,
+              }}
+            >
+              <ProductCard data={product} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </div>
   </main>
 );

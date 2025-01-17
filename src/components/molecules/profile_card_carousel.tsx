@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { SalaryTooltip } from "../atoms/salary_tooltip";
+import { motion } from "framer-motion";
 
 const CardCarousel = ({ cards }: { cards: React.ReactNode[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,7 +19,12 @@ const CardCarousel = ({ cards }: { cards: React.ReactNode[] }) => {
   };
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto flex items-center justify-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="relative w-full max-w-2xl mx-auto flex items-center justify-center"
+    >
       {/* Left Arrow */}
       <button
         onClick={handlePrev}
@@ -102,7 +108,7 @@ const CardCarousel = ({ cards }: { cards: React.ReactNode[] }) => {
           />
         </svg>
       </button>
-    </div>
+    </motion.div>
   );
 };
 

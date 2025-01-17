@@ -16,14 +16,14 @@ export const SalaryTooltip = () => (
         <path
           d="M13.9512 4.5L13.9512 6.3291"
           stroke="#00C696"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <path
           d="M13.9512 19.918L13.9512 21.7471"
           stroke="#00C696"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </svg>
       <span>

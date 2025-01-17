@@ -1,13 +1,16 @@
 import { Footer } from "../templates/footer";
 import { Header } from "../templates/header";
-import { Main } from "../templates/main";
+import { Main, MainProps } from "../templates/main";
 
-export default function Landing() {
-  return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
-  );
+export interface LandingProps {
+  mainProps: MainProps;
 }
+const Landing = ({ mainProps }: LandingProps) => (
+  <>
+    <Header />
+    <Main {...mainProps} />
+    <Footer />
+  </>
+);
+
+export default Landing;
